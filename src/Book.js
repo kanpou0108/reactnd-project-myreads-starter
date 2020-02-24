@@ -6,11 +6,13 @@ const Book = ({ book, onMoveToShelf }) => {
     onMoveToShelf(book.id, shelf)
   }
 
+  const thumbnail = book.imageLinks.thumbnail.replace(/^http:\/\//i, 'https://');
+
   return (
     <div className="book">
       <div className="book-top">
         <div className="book-cover"
-        style={{ width: 128, height: 193, backgroundImage: `url("${book.imageLinks.thumbnail}")` }}></div>
+        style={{ width: 128, height: 193, backgroundImage: `url("${thumbnail}")` }}></div>
         <MoveToShelfButton
           onSelectShelf={moveBook}
           currentShelf={book.shelf}
